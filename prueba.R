@@ -11,3 +11,5 @@ twitter_token <- create_token(
 mentions.aimplas.interactions.all <- read.csv("data_output/aimplas_interactuers.csv")
 
 data <- get_timeline("aimplas", n = 10000)
+
+print("completado!")
