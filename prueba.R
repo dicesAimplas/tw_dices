@@ -1,4 +1,5 @@
 library(rtweet)
+library(readr)
 
 twitter_token <- create_token(
   app = "AIMPLAS",
@@ -12,4 +13,4 @@ mentions.aimplas.interactions.all <- read.csv("data_output/aimplas_interactuers.
 
 data <- get_timeline("aimplas", n = 10000)
 
-print("completado!")
+write_csv(data, "data_output/prueba.csv")
