@@ -7,7 +7,7 @@ outMail = OutApp$CreateItem(0)
 ## configure email parameter
 outMail[["To"]] = "sjuanesaimplas@gmail.com"
 outMail[["subject"]] = "Test Email"
-outMail[["body"]] = "Hi, How are you?"
+outMail[["body"]] = "Funciona?"
 
 ## send it
 outMail$Send()
