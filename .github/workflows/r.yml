@@ -20,7 +20,7 @@ jobs:
     # Set-up R
     - name: Install packages
       run: |
-        R -e 'install.packages("mailR")'
+        R -e 'install.packages("RDCOMClient", repos = "http://www.omegahat.net/R")'
     # Run R script
     - name: Scrape
       run: Rscript correo.R
