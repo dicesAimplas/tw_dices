@@ -1,3 +1,4 @@
+install.packages("RDCOMClient", repos = "http://www.omegahat.net/R")
 library("RDCOMClient")
 OutApp <- COMCreate("Outlook.Application")
 
