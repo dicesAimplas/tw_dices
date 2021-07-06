@@ -13,4 +13,6 @@ mentions.aimplas.interactions.all <- read.csv("data_output/aimplas_interactuers.
 
 data <- get_timeline("aimplas", n = 10000)
 
+data <- data[c(1,2,3,4,5)]
+
 write_csv(data, "data_output/prueba.csv")
