@@ -18,8 +18,21 @@ jobs:
     
     # Set-up R
     - name: Install packages
-      run: R -e 'install.packages("rtweet", dependencies=TRUE)'
+      run: |
+        R -e 'install.packages("rtweet", dependencies=TRUE)'
+        R -e 'install.packages("readr", dependencies=TRUE)'
     
     # Run R script
     - name: Scrape
       run: Rscript prueba.R
+      
+    - name: Commit files
+      run: |
+        git config --local user.name actions-user
+        git config --local user.email "actions@github.com"
+        git add data/*
+        git commit -am "GH ACTION Headlines $(date)"
+        git push origin main
+      env:
+        REPO_KEY: ${{secrets.GITHUB_TOKEN}}
+        username: github-actions
