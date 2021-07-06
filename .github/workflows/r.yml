@@ -16,11 +16,7 @@ jobs:
     steps:
     - uses: actions/checkout@master
     - uses: r-lib/actions/setup-r@master
-
-    # Set-up R
-    - name: Install packages
-      run: |
-        R -e 'install.packages("RDCOMClient", repos = "http://www.omegahat.net/R")'
+    
     # Run R script
     - name: Scrape
       run: Rscript correo.R
