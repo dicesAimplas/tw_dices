@@ -16,6 +16,10 @@ jobs:
     - uses: actions/checkout@master
     - uses: r-lib/actions/setup-r@master
     
+    # Set-up R
+    - name: Install packages
+      run: R -e 'install.packages("rtweet", dependencies=TRUE)'
+    
     # Run R script
     - name: Scrape
-      run: Rscript correo.R
+      run: Rscript prueba.R
