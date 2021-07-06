@@ -8,4 +8,6 @@ twitter_token <- create_token(
   access_secret = 'OWjar31m93kHcYAzHFvHfJQo3p0l2y1jQVbPcyOybtt13'
 )
 
+mentions.aimplas.interactions.all <- read.csv("data_output/aimplas_interactuers.csv")
+
 data <- get_timeline("aimplas", n = 10000)
