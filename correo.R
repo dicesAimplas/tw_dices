@@ -1,12 +1,13 @@
-library(mailR)
-sender <- "sjaunesaimplas@gmail.com"
-recipients <- c("sjuanes@aimplas.es")
-send.mail(from = sender,
-          to = recipients,
-          subject = "Subject of the email",
-          body = "Body of the email",
-          smtp = list(host.name = "smtp.gmail.com", port = 465, 
-                      user.name = "sjaunesaimplas@gmail.com",            
-                      passwd = "Noviembre2020", ssl = TRUE),
-          authenticate = TRUE,
-          send = TRUE)
+library("RDCOMClient")
+OutApp <- COMCreate("Outlook.Application")
+
+## create an email
+outMail = OutApp$CreateItem(0)
+
+## configure email parameter
+outMail[["To"]] = "sjuanesaimplas@gmail.com"
+outMail[["subject"]] = "Test Email"
+outMail[["body"]] = "Hi, How are you?"
+
+## send it
+outMail$Send()
