@@ -1,5 +1,5 @@
-source("fun_auxiliar.R")
-source("functions.R")
+source("src/fun_auxiliar.R")
+source("src/functions.R")
 
 packages <- c("rtweet", "tidyverse", "visNetwork", "tm", "RJSONIO", "RCurl", "syuzhet", "lubridate", "xts")
 invisible(lapply(packages, library, character.only = TRUE))
@@ -16,9 +16,6 @@ main <- function() {
   
   #actualizacion ddel grafo
   Graph_Interactions()
-  
-  #actualizacion de los hashtags de los plasticos
-  Hashtags_Plasticos()
   
 }
 
