@@ -4,7 +4,7 @@ name: R
 # Controls when the action will run.
 on:
   schedule:
-  - cron: '30 7 * * *'
+  - cron: '30 8 * * *'
 
 jobs: 
   autoscrape:
@@ -20,11 +20,19 @@ jobs:
     - name: Install packages
       run: |
         R -e 'install.packages("rtweet", dependencies=TRUE)'
-        R -e 'install.packages("readr", dependencies=TRUE)'
+        R -e 'install.packages("tidyverse", dependencies=TRUE)'
+        R -e 'install.packages("visNetwork", dependencies=TRUE)'
+        R -e 'install.packages("tm", dependencies=TRUE)'
+        R -e 'install.packages("RJSONIO", dependencies=TRUE)'
+        R -e 'install.packages("RCurl", dependencies=TRUE)'
+        R -e 'install.packages("syuzhet", dependencies=TRUE)'
+        R -e 'install.packages("lubridate", dependencies=TRUE)'
+        R -e 'install.packages("xts", dependencies=TRUE)'
+        R -e 'install.packages("visNetwork", dependencies=TRUE)'
     
     # Run R script
     - name: Scrape
-      run: Rscript prueba.R
+      run: Rscript tw_update.R
       
     - name: Commit files
       run: |
