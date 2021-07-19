@@ -31,7 +31,6 @@ jobs:
         R -e 'install.packages("xts", dependencies=TRUE)'
         R -e 'install.packages("visNetwork", dependencies=TRUE)'
         
-        
     # Run R script
     - name: Scrape
       run: Rscript tw_update_weekly.R
