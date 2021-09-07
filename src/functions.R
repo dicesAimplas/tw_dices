@@ -273,7 +273,7 @@ Graph_Interactions <- function() {
 #traida de los tweets de aimplas
 Tweets_Aimplas <- function() {
   #cargamos el archivo original
-  load(file.path("data_tweets/aimplasfull.RData"))
+  load(file.path("data_output/aimplasfull.RData"))
   
   if(as.Date(max(aimplas.all.tweets$created_at)) != Sys.Date() - 1){
     #recogemos los tweets que contienen aimplas
