@@ -303,7 +303,14 @@ Tweets_Aimplas <- function() {
 #traida de los tweets de plasticos
 Tweets_Plasticos <- function() {
   #cargamos el archivo original
-  load(file.path("data_tweets/plasticosfull.RData"))
+  #load(file.path("data_tweets/plasticosfull.RData"))
+  rdata_files <- list.files(path = "data_output/data_tweets_plastico/" ,pattern = "\\.RData")
+  
+  plastico.tweets <- NULL
+  for (i in rdata_files) {
+    load(file.path(paste0("data_output/data_tweets_plastico/", i)))
+    plastico.tweets <- rbind(plastico.tweets, i)
+  }
   
   if(as.Date(max(plasticos.all.tweets$created_at)) != Sys.Date() - 1){
     #recoger todos los tweets con plastico
@@ -320,9 +327,19 @@ Tweets_Plasticos <- function() {
     
     #si hay alguno repetido lo eliminamos
     plasticos.all.tweets <- plasticos.all.tweets %>% distinct(status_id, .keep_all = TRUE)
+  
+    #dividimos el dataframes en dataframes de 50000 rows para dividir el espacio
+    plasticos.tweets.split <- split(plasticos.all.tweets, (0:nrow(plasticos.all.tweets) %/% 50000)) 
+    
+    #guardamos todos los dataframes en la carpeta
+    j <- 1
+    for (i in plasticos.tweets.split) {
+      save(i, file = paste0("data_output/data_tweets_plastico/plasticossplit_", j, ".RData"))
+      j <- j + 1
+    }
     
     #lo guardamos en un RData en la carpeta data
-    save(plasticos.all.tweets, file = "data_output/plasticosfull.RData")
+    #save(plasticos.all.tweets, file = "data_output/plasticosfull.RData")
     
     #clear variables
     remove(dates.plasticos, plastico.tweets, plastico.tweets.day)
