@@ -1,7 +1,5 @@
-source("fun_auxiliar.R")
-source("functions.R")
-
-#actualización semanal
+source("src/fun_auxiliar.R")
+source("src/functions.R")
 
 packages <- c("rtweet", "tidyverse", "visNetwork", "tm", "RJSONIO", "RCurl", "syuzhet", "lubridate", "xts", "readr")
 
