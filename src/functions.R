@@ -485,7 +485,13 @@ Plasticos_Sentimientos_nrc <- function() {
 
 Plasticos_Sentimientos_syuzhet <- function() {
   #cargamos datos
-  load(file.path("data_tweets/plasticosfull.RData"))
+  rdata_files <- list.files(path = "data_output/data_tweets_plastico/" ,pattern = "\\.RData")
+  
+  plasticos.all.tweets <- NULL
+  for (i in rdata_files) {
+    load(file.path(paste0("data_output/data_tweets_plastico/", i)))
+    plasticos.all.tweets <- rbind(plasticos.all.tweets, i)
+  }
   
   #valor de sentimiento con el metodo syuzhet
   sent.value <- get_sentiment(plasticos.all.tweets$text, method = "syuzhet", language = "spanish")
