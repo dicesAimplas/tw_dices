@@ -28,12 +28,13 @@ main <- function() {
   
   #recogida de tweets en los que aparece "plastico"
   Tweets_Plasticos()
--
+
   #actualización seguidores aimplas
   #Followers_Aimplas()
   
   #analisis de sentimientos
   #Plasticos_Sentimientos_syuzhet()
+  
 }
 
 if(getOption("run.main", default=TRUE)) {
