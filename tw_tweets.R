@@ -24,7 +24,7 @@ twitter_token <- create_token(
 
 main <- function() {
   #recogida de tweets en los que aparece "aimplas"
-  Tweets_Aimplas()
+  #Tweets_Aimplas()
   
   #recogida de tweets en los que aparece "plastico"
   Tweets_Plasticos()
