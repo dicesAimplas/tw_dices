@@ -303,7 +303,7 @@ Tweets_Aimplas <- function() {
 #traida de los tweets de plasticos
 Tweets_Plasticos <- function() {
   #cargamos el archivo original
-  load(file.path("data_tweets/plasticosfull.RData"))
+  load(file.path("data_output/plasticosfull.RData"))
   #rdata_files <- list.files(path = "data_output/data_tweets_plastico/" ,pattern = "\\.RData")
   
   #plasticos.all.tweets <- NULL
