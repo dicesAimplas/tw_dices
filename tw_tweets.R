@@ -33,7 +33,7 @@ main <- function() {
   #Followers_Aimplas()
   
   #analisis de sentimientos
-  Plasticos_Sentimientos_syuzhet()
+  #Plasticos_Sentimientos_syuzhet()
 }
 
 if(getOption("run.main", default=TRUE)) {
