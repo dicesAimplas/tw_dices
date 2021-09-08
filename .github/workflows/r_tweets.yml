@@ -4,7 +4,7 @@ name: R tweets
 # Controls when the action will run.
 on:
   schedule:
-  - cron: '21 11 * * *'
+  - cron: '53 6 * * *'
 
 jobs: 
   autoscrape:
