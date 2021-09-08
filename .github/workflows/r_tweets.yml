@@ -3,8 +3,10 @@ name: R tweets
 
 # Controls when the action will run.
 on:
-  schedule:
-  - cron: '35 9 * * *'
+  push:
+    branches: main
+  #schedule:
+  #- cron: '35 9 * * *'
 
 jobs: 
   autoscrape:
