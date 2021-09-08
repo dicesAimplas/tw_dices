@@ -303,14 +303,14 @@ Tweets_Aimplas <- function() {
 #traida de los tweets de plasticos
 Tweets_Plasticos <- function() {
   #cargamos el archivo original
-  #load(file.path("data_tweets/plasticosfull.RData"))
-  rdata_files <- list.files(path = "data_output/data_tweets_plastico/" ,pattern = "\\.RData")
+  load(file.path("data_tweets/plasticosfull.RData"))
+  #rdata_files <- list.files(path = "data_output/data_tweets_plastico/" ,pattern = "\\.RData")
   
-  plasticos.all.tweets <- NULL
-  for (i in rdata_files) {
-    load(file.path(paste0("data_output/data_tweets_plastico/", i)))
-    plasticos.all.tweets <- rbind(plasticos.all.tweets, i)
-  }
+  #plasticos.all.tweets <- NULL
+  #for (i in rdata_files) {
+  #  load(file.path(paste0("data_output/data_tweets_plastico/", i)))
+  #  plasticos.all.tweets <- rbind(plasticos.all.tweets, i)
+  #}
   
   if(as.Date(max(plasticos.all.tweets$created_at)) != Sys.Date() - 1){
     #recoger todos los tweets con plastico
