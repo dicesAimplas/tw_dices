@@ -306,10 +306,10 @@ Tweets_Plasticos <- function() {
   #load(file.path("data_tweets/plasticosfull.RData"))
   rdata_files <- list.files(path = "data_output/data_tweets_plastico/" ,pattern = "\\.RData")
   
-  plastico.tweets <- NULL
+  plasticos.all.tweets <- NULL
   for (i in rdata_files) {
     load(file.path(paste0("data_output/data_tweets_plastico/", i)))
-    plastico.tweets <- rbind(plastico.tweets, i)
+    plasticos.all.tweets <- rbind(plasticos.all.tweets, i)
   }
   
   if(as.Date(max(plasticos.all.tweets$created_at)) != Sys.Date() - 1){
@@ -320,10 +320,10 @@ Tweets_Plasticos <- function() {
     dates.plasticos <- seq(as.Date(max(plasticos.all.tweets$created_at)) + 1, Sys.Date() - 1, by = "days")
     
     #seleccionamos los tweets de las fecas 
-    plastico.tweets.day <- plastico.tweets[which(as.Date(plastico.tweets$created_at) %in% dates.plasticos == TRUE), ]
+    plastico.tweets.day <- plasticos.all.tweets[which(as.Date(plasticos.all.tweets$created_at) %in% dates.plasticos == TRUE), ]
     
     #unimos el archivo original a los filtrados por los dias deseados
-    plasticos.all.tweets <- rbind(plasticos.all.tweets, plastico.tweets.day)
+    plasticos.all.tweets <- rbind(plasticos.all.tweets, plastico.tweets)
     
     #si hay alguno repetido lo eliminamos
     plasticos.all.tweets <- plasticos.all.tweets %>% distinct(status_id, .keep_all = TRUE)
