@@ -27,7 +27,7 @@ main <- function() {
   Tweets_Aimplas()
   
   #recogida de tweets en los que aparece "plastico"
-  #Tweets_Plasticos()
+  Tweets_Plasticos()
   
   #analisis de sentimientos
   #Plasticos_Sentimientos_syuzhet()
