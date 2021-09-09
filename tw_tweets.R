@@ -30,7 +30,7 @@ main <- function() {
   Tweets_Plasticos()
   
   #analisis de sentimientos
-  #Plasticos_Sentimientos_syuzhet()
+  Plasticos_Sentimientos_syuzhet()
   
 }
 
