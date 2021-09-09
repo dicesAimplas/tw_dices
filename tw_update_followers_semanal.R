@@ -16,6 +16,9 @@ twitter_token <- create_token(
 main <- function() {
   #Seguidores
   Followers_Aimplas()
+  
+  #actualizacion info cuenta aimplas
+  Aimplas_Data()
 }
 
 if(getOption("run.main", default=TRUE)) {
