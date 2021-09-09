@@ -20,9 +20,6 @@ main <- function() {
   #timeline de aimplas
   Timeline_Stats()
   
-  #actualizacion info cuenta aimplas
-  Aimplas_Data()
-  
   #actualizacion ddel grafo
   Graph_Interactions()
   
