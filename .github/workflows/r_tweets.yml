@@ -32,7 +32,7 @@ jobs:
     
     # Run R script
     - name: Scrape
-      run: Rscript tw_tweets.R
+      run: Rscript tw_update_tweets_sents.R
       
     - name: Commit files
       run: |
