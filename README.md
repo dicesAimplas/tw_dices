@@ -12,7 +12,7 @@ Los ficheros yml están localizados en la carpeta ".github/workflows". Estos fic
 
 El contenido de cada script y su funcionalidad está explicado en el repositorio principal.
 
-Los archivos yml situados en la carpeta workflows funcionan de manera que se ejecutan de acuerdo a un cron (que es un administrador regular de procesos en segundo plano que ejecuta procesos en intervalos regulares). Nos fijaremos en, por ejemplo, el código del fichero r_weekly.yml. En la parte superior, encontramos el nombre que le damos al workflow (que son los diferentes entornos de trabajo que se emplean. Está bien usar un nombre para cada uno de los archivos, de modo que así se comprueba, si hubiese algún error, en qué workflow se ha producido) Debajo del nombre, encontramos el código
+Los archivos yml situados en la carpeta workflows funcionan de manera que se ejecutan de acuerdo a un cron (que es un administrador regular de procesos en segundo plano que ejecuta procesos en intervalos regulares). Nos fijaremos en, por ejemplo, el código del fichero r_weekly.yml. En la parte superior, encontramos el nombre que le damos al workflow (que son los diferentes entornos de trabajo que se emplean. Está bien usar un nombre para cada uno de los archivos, de modo que así se comprueba, si hubiese algún error, en qué workflow se ha producido) Debajo del nombre, encontramos el código que indica que se ejecute el archivo en el minuto 0 a la hora 0 a en cualquier dia del mes para cualquier mes y que sea el primer dia de la semana. En la página https://crontab.guru/ se encuentra un generador de expresiones cron en la que se explica detalladamente. Si quisieramos que fuera en todos los días de la semana, indicaríamos un * en lugar de un 1:
 
 ```
 on:
@@ -20,22 +20,20 @@ on:
     - cron: '0 0 * * 1'
 ```
 
-lo cual indica que se ejecute el archivo en el minuto 0 a la hora 0 a en cualquier dia del mes para cualquier mes y que sea el primer dia de la semana. En la página https://crontab.guru/ se encuentra un generador de expresiones cron en la que se explica detalladamente. Si quisieramos que fuera en todos los días de la semana, indicaríamos un * en lugar de un 1.
-
-Después, se indican el trabajo que realizará (con jobs: autoscrape:). Primero, con el código
+Después, se indican el trabajo que realizará (con jobs: autoscrape:). Primero se indica el sistema operativo y la versión en la cual se deberá realizar todo el proceso:
 
 ```
 runs-on: macos-latest
 ```
-se indica el sistema operativo y la versión en la cual se deberá realizar todo el proceso. 
 
+Carga el repositorio e instala R: 
 ```
  steps:
     - uses: actions/checkout@master
     - uses: r-lib/actions/setup-r@master
 ```
-Carga el repositorio e instala R.
 
+Instala todas las librerías necesarias para la ejecución del script de R:
 ```
     - name: Install packages
       run: |
@@ -50,14 +48,14 @@ Carga el repositorio e instala R.
         R -e 'install.packages("xts", dependencies=TRUE)'
         R -e 'install.packages("visNetwork", dependencies=TRUE)'
 ```
-Instala todas las librerías necesarias para la ejecución del script de R
 
+Indicar el script que tiene que ejecutar:
 ```
     - name: Scrape
       run: Rscript tw_update_followers_semanal.R
 ```
-Indica el script que tiene que ejecutar
 
+Comandos en consola para actualizar los ficheros de datos:
 ```
     - name: Commit files
       run: |
@@ -70,4 +68,4 @@ Indica el script que tiene que ejecutar
         REPO_KEY: ${{secrets.GITHUB_TOKEN}}
         username: github-actions
 ```
-Comandos en consola para actualizar los ficheros de datos
+
