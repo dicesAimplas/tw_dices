@@ -69,3 +69,11 @@ Comandos en consola para actualizar los ficheros de datos:
         username: github-actions
 ```
 
+## Carpeta data_output
+En esta carpeta se almacenan los datos que han sido generados por los scripts correspondientes. La aplicación principal se alimenta, en parte, de estos datos, accediendo directamente a ellos desde la propia aplicación.
+
+## Carpeta src
+En esta carpeta se almacenan las funciones que permiten la ingesta automática de los datos, así como una serie de funciones auxiliares que se implementan dentro de las funciones principales.
+
+## Funciones principales
+Como se ha explicado anteriormente, el resto de funciones principales están explicadas en el repositorio principal.
