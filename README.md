@@ -12,7 +12,7 @@ Los ficheros yml están localizados en la carpeta ".github/workflows". Estos fic
 
 El contenido de cada script y su funcionalidad está explicado en el repositorio principal.
 
-Los archivos yml situados en la carpeta workflows funcionan de manera que se ejecutan de acuerdo a un cron (que es un administrador regular de procesos en segundo plano que ejecuta procesos en intervalos regulares). El código 
+Los archivos yml situados en la carpeta workflows funcionan de manera que se ejecutan de acuerdo a un cron (que es un administrador regular de procesos en segundo plano que ejecuta procesos en intervalos regulares). Nos fijaremos en, por ejemplo, el código del fichero r_weekly.yml. En la parte superior, encontramos
 
 ```
 on:
@@ -20,4 +20,4 @@ on:
     - cron: '0 0 * * 1'
 ```
 
-indica que se ejecute el archivo en el minuto 0 a la hora 0 a en cualquier dia del mes para cualquier mes y que sea el primer dia de la semana. En la página https://crontab.guru/ se encuentra un generador de expresiones cron en la que se explica detalladamente.
+lo cual indica que se ejecute el archivo en el minuto 0 a la hora 0 a en cualquier dia del mes para cualquier mes y que sea el primer dia de la semana. En la página https://crontab.guru/ se encuentra un generador de expresiones cron en la que se explica detalladamente. Si quisieramos que fuera en todos los días de la semana, indicaríamos un * en lugar de un 1.
