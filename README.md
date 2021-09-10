@@ -1,2 +1,3 @@
-# tw_dices
-Repositorio para almacenar datos para la lectura
+# Escucha en redes: Repositorio de almacenamiento de los datos
+
+# Descripción
